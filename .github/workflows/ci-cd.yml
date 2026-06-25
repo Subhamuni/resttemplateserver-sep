@@ -31,9 +31,8 @@ jobs:
 
       - name: Generate image tag
         id: meta
-        shell: powershell
         run: |
-          "tag=${{ github.sha }}" >> $env:GITHUB_OUTPUT
+          echo "tag=${{ github.sha }}" >> $GITHUB_OUTPUT
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
