@@ -24,17 +24,13 @@ jobs:
       image_tag: ${{ steps.meta.outputs.tag }}
 
     steps:
-      - name: Set tag
-        run: echo "tag=b098d044ce39d0b8ebce04c359ce9e51bb9c1aa5" >> $env:GITHUB_OUTPUT
-        shell: pwsh
-
       - name: Checkout source
         uses: actions/checkout@v4
 
       - name: Generate image tag
         id: meta
         shell: pwsh
-        run: |
+        run: echo "tag=b098d044ce39d0b8ebce04c359ce9e51bb9c1aa5" >> $env:GITHUB_OUTPUT
           "tag=${{ github.sha }}" >> $env:GITHUB_OUTPUT
 
       - name: Log in to Harbor
