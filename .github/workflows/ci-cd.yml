@@ -30,10 +30,10 @@ jobs:
 
       - name: Generate image tag
         id: meta
-        shell: pwsh
+        shell: bash
+        # shell: pwsh
         run: |
-          "tag=fcaf1519b9fdbac73ab04927ad0c87dd1da41887" >> $env:GITHUB_OUTPUT
-        # "tag=${{ github.sha }}" >> $env:GITHUB_OUTPUT
+          "tag=${{ github.sha }}" >> $env:GITHUB_OUTPUT
 
       - name: Log in to Harbor
         uses: docker/login-action@v3
