@@ -54,7 +54,8 @@ jobs:
 
   update-gitops:
     name: Update GitOps Repo for ArgoCD
-    runs-on: self-hosted
+    runs-on: windows-latest
+    # runs-on: self-hosted
     needs: build-and-push
 
     steps:
