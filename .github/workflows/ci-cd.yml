@@ -17,7 +17,7 @@ env:
 jobs:
   build-and-push:
     name: Build & Push to Harbor
-    runs-on: Windows
+    runs-on: windows-latest
     # runs-on: self-hosted
 
     outputs:
@@ -30,8 +30,7 @@ jobs:
 
       - name: Generate image tag
         id: meta
-        shell: bash
-        # shell: pwsh
+        shell: pwsh
         run: |
           "tag=${{ github.sha }}" >> $env:GITHUB_OUTPUT
 
