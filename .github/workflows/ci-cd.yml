@@ -21,7 +21,8 @@ jobs:
     # runs-on: self-hosted
 
     outputs:
-      image_tag: ${{ steps.meta.outputs.tag }}
+      image_tag: echo "tag=..." >> $env:GITHUB_OUTPUT
+      # image_tag: ${{ steps.meta.outputs.tag }}
 
     steps:
       
@@ -54,8 +55,7 @@ jobs:
 
   update-gitops:
     name: Update GitOps Repo for ArgoCD
-    runs-on: windows-latest
-    # runs-on: self-hosted
+    runs-on: self-hosted
     needs: build-and-push
 
     steps:
