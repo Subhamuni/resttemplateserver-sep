@@ -17,12 +17,12 @@ env:
 jobs:
   build-and-push:
     name: Build & Push to Harbor
-    runs-on: windows-latest
+    runs-on: self-hosted
+    # runs-on: windows-latest
     # runs-on: self-hosted
 
     outputs:
-      image_tag: echo "tag=..." >> $env:GITHUB_OUTPUT
-      # image_tag: ${{ steps.meta.outputs.tag }}
+       image_tag: ${{ steps.meta.outputs.tag }}
 
     steps:
       
@@ -33,7 +33,8 @@ jobs:
         id: meta
         shell: pwsh
         run: |
-          "tag=${{ github.sha }}" >> $env:GITHUB_OUTPUT
+          echo "tag=${{ github.sha }}" >> $env:GITHUB_OUTPUT
+        # "tag=${{ github.sha }}" >> $env:GITHUB_OUTPUT
 
       - name: Log in to Harbor
         uses: docker/login-action@v3
