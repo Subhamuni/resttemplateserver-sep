@@ -31,7 +31,8 @@ jobs:
 
       - name: Generate image tag
         id: meta
-        shell: pwsh
+        shell: powershell
+        # shell: pwsh
         run: |
           echo "tag=${{ github.sha }}" >> $env:GITHUB_OUTPUT
         # "tag=${{ github.sha }}" >> $env:GITHUB_OUTPUT
@@ -69,7 +70,8 @@ jobs:
 
       
       - name: Install kustomize
-        shell: pwsh
+        shell: powershell
+        # shell: pwsh
         run: |
           $version = "v5.7.1"
 
@@ -84,7 +86,8 @@ jobs:
           .\kustomize.exe version    
 
       - name: Update image tag
-        shell: pwsh
+        shell: powershell
+        # shell: pwsh
         run: |
           cd gitops/${{ env.GITOPS_PATH }}
 
@@ -92,7 +95,8 @@ jobs:
             ${{ env.IMAGE_NAME }}=${{ env.HARBOR_REGISTRY }}/${{ env.HARBOR_PROJECT }}/${{ env.STUDENT_ID }}/${{ env.IMAGE_NAME }}:${{ needs.build-and-push.outputs.image_tag }}
 
       - name: Commit and push GitOps change
-        shell: pwsh
+        shell: powershell
+        # shell: pwsh
         run: |
           cd gitops
           git config user.name "github-actions[bot]"
