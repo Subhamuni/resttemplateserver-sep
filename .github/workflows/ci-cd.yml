@@ -8,7 +8,7 @@ on:
 env:
   HARBOR_REGISTRY: 210.90.24.172:8080
   HARBOR_PROJECT: camit
-  STUDENT_ID: Subhamuni
+  STUDENT_ID: subhamuni
   IMAGE_NAME: resttemplateserver-sep
 
   GITOPS_REPO: Subhamuni/resttemplateserver-sep-gitops
